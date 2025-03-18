@@ -1,9 +1,9 @@
 .WaveContainer {
-    position: absolute;
+    position: fixed;
     bottom: 0; /* Adjusted by JS */
     left: 0;
     width: 100%;
-    height: 200px;
+    height: 160px;
     z-index: 0;
     overflow: hidden;
 }
