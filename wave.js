@@ -1,17 +1,17 @@
-// Procedurally generate a smooth, seamless wave path
+// Procedurally generate a smooth, seamless, infinite wave path
 function generateWavePath() {
-    const width = 2880; // Double width for seamless looping (2x 1440)
+    const width = 2880; // Double width for seamless looping
     const height = 200; // Wave height
-    const segmentWidth = 180; // Smaller segments for smoother curve
+    const segmentWidth = 90; // Smaller segments for smoother curve
     const segments = width / segmentWidth;
     let path = `M0,${height / 2} `;
 
-    // Generate a smooth sine-based wave
+    // Generate a repeating sine-based wave
     for (let i = 0; i <= segments; i++) {
         const x = i * segmentWidth;
-        const y = height / 2 + Math.sin(i * 0.5) * 50; // Smaller amplitude
+        const y = height / 2 + Math.sin((i * 2 * Math.PI) / (segments / 2)) * 50; // Two full sine cycles
         const controlX = x - segmentWidth / 2;
-        const controlY = height / 2 + Math.sin((i - 0.5) * 0.5) * 50;
+        const controlY = height / 2 + Math.sin(((i - 0.5) * 2 * Math.PI) / (segments / 2)) * 50;
 
         if (i === 0) {
             path += `C${controlX},${controlY} ${controlX},${controlY} ${x},${y} `;
@@ -20,7 +20,7 @@ function generateWavePath() {
         }
     }
 
-    // Close the path without disrupting the wave shape
+    // Close the path
     path += `L${width},${height} L0,${height} Z`;
     return path;
 }
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     wavePath.setAttribute('d', pathData);
 
     // Ensure fill is applied
-    wavePath.style.fill = '#007bff'; // Reinforce fill color
+    wavePath.style.fill = '#007bff';
 
-    // Add seamless animation via CSS
+    // Add seamless animation
     wavePath.style.animation = 'waveFlow 10s infinite linear';
 });
 
@@ -43,7 +43,7 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = `
     @keyframes waveFlow {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-1440px); } /* Half the path width for seamless loop */
+        100% { transform: translateX(-1440px); } /* Half the path width */
     }
 `;
 document.head.appendChild(styleSheet);
