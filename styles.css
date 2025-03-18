@@ -214,22 +214,25 @@ footer {
     transform: scale(1.2);
 }
 
-/* Updated wave animation */
+/* Improved wave animation */
 .wave {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 200%; /* Double width to allow seamless horizontal movement */
-    height: 200px; /* Fixed height for the wave */
+    width: 200%; /* Double width for seamless movement */
+    height: 250px; /* Height for bigger waves */
     z-index: 0;
-    overflow: hidden; /* Prevent wrapping */
-    animation: waveMove 10s infinite linear; /* Horizontal movement */
+    overflow: hidden;
 }
 
 .wave svg {
     width: 100%;
     height: 100%;
     display: block;
+}
+
+.wave-path {
+    animation: waveFlow 15s infinite linear; /* Slower for natural flow */
 }
 
 /* Animations */
@@ -243,9 +246,19 @@ footer {
     to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes waveMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Move half the width for seamless looping */
+@keyframes waveFlow {
+    0% {
+        transform: translateX(-50%);
+        d: "M0,150 C240,100 480,200 720,150 C960,100 1200,200 1440,150 C1680,100 1920,200 2160,150 C2400,100 2640,200 2880,150 L2880,250 L0,250 Z";
+    }
+    50% {
+        transform: translateX(0);
+        d: "M0,150 C240,200 480,100 720,150 C960,200 1200,100 1440,150 C1680,200 1920,100 2160,150 C2400,200 2640,100 2880,150 L2880,250 L0,250 Z";
+    }
+    100% {
+        transform: translateX(-50%);
+        d: "M0,150 C240,100 480,200 720,150 C960,100 1200,200 1440,150 C1680,100 1920,200 2160,150 C2400,100 2640,200 2880,150 L2880,250 L0,250 Z";
+    }
 }
 
 /* Mobile responsiveness */
@@ -289,13 +302,13 @@ footer {
     }
 
     .wave {
-        height: 150px;
+        height: 180px;
     }
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .container, .hero-img, .btn, .contact-link, .social-links a, .wave {
+    .container, .hero-img, .btn, .contact-link, .social-links a, .wave-path {
         animation: none;
         transition: none;
     }
