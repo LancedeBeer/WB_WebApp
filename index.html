@@ -7,8 +7,12 @@
     <title>Water Boy Monthly Specials - Coming Soon</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet"> <!-- Google Fonts -->
 </head>
 <body>
+    <!-- Particle background -->
+    <div id="particles-js"></div>
+
     <div class="container">
         <header>
             <img src="logo.png" alt="Water Boy Logo" class="logo"> <!-- Replace with your logo -->
@@ -16,6 +20,9 @@
         </header>
         <main>
             <section class="hero">
+                <div class="hero-image">
+                    <img src="water-dispenser.jpg" alt="Water Dispenser" class="hero-img"> <!-- Replace with your image -->
+                </div>
                 <h2>Exciting Offers Coming Soon!</h2>
                 <p>Our web app for monthly specials and coupons on water dispensers and containers is under development. Be the first to know when it launches!</p>
             </section>
@@ -46,6 +53,16 @@
             <p>Visit <a href="https://www.water-boy.co.za">www.water-boy.co.za</a> for more information about our services.</p>
         </footer>
     </div>
+
+    <!-- Wave animation -->
+    <div class="wave">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M-1.56,85.40 C147.47,167.08 280.54,-36.76 501.56,85.40 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #007bff;"></path>
+        </svg>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- Particles.js -->
     <script src="scripts.js"></script>
 </body>
 </html>
