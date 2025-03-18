@@ -25,9 +25,10 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 20px 20px 220px 20px; /* Keeps container above wave */
+    margin: 20px;
     animation: fadeIn 1s ease-in-out;
-    position: relative;
+    position: relative; /* Contains the wave */
+    overflow: hidden; /* Prevents wave overflow */
     z-index: 1;
 }
 
@@ -77,7 +78,7 @@ h1 {
 }
 
 .signup {
-    margin: 30px 0;
+    margin: 30px 0 200px 0; /* Wave height (200px), no extra 10px needed */
 }
 
 .signup h3 {
@@ -211,7 +212,7 @@ footer {
 @media (max-width: 600px) {
     .container {
         padding: 20px;
-        margin: 20px 20px 170px 20px; /* Adjusted for mobile wave height */
+        margin: 20px;
     }
 
     .logo {
@@ -246,6 +247,10 @@ footer {
 
     .hero-img {
         max-width: 80%;
+    }
+
+    .signup {
+        margin: 30px 0 150px 0; /* Wave height (150px) */
     }
 }
 

@@ -1,8 +1,8 @@
 .wave {
     position: absolute;
-    bottom: -25px; /* Adjust to ensure visibility*/
+    bottom: 0; /* Ensures visibility with bottom cut off */
     left: 0;
-    width: 200%;
+    width: 100%;
     height: 200px;
     z-index: 0;
     overflow: hidden;
@@ -17,6 +17,5 @@
 @media (max-width: 600px) {
     .wave {
         height: 150px;
-        bottom: -10px; /* Adjusted for mobile visibility */
     }
 }
