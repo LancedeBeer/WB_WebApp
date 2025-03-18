@@ -1,6 +1,6 @@
 .WaveContainer {
     position: absolute;
-    bottom: 0; /* At the bottom of the page */
+    bottom: 100px; /* Moved up from 30px to be closer to form */
     left: 0;
     width: 100%; /* Full page width */
     height: 200px;
@@ -16,6 +16,7 @@
 
 @media (max-width: 600px) {
     .WaveContainer {
+        bottom: 80px; /* Moved up from 20px to be closer to form */
         height: 150px;
     }
 }

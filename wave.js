@@ -2,16 +2,16 @@
 function generateWavePath() {
     const width = 2880; // Double width for seamless looping
     const height = 200; // Wave height
-    const segmentWidth = 90; // Smaller segments for smoother curve
+    const segmentWidth = 60; // Smooth segments
     const segments = width / segmentWidth;
-    let path = `M0,${height / 2} `;
+    let path = `M-60,${height} `; // Start slightly off-screen for continuity
 
     // Generate a repeating sine-based wave
-    for (let i = 0; i <= segments; i++) {
+    for (let i = 0; i <= segments + 1; i++) { // Extra segment for overlap
         const x = i * segmentWidth;
-        const y = height / 2 + Math.sin((i * 2 * Math.PI) / (segments / 2)) * 50; // Two full sine cycles
+        const y = height - 60 + Math.sin((i * 2 * Math.PI) / (segments / 2)) * 60;
         const controlX = x - segmentWidth / 2;
-        const controlY = height / 2 + Math.sin(((i - 0.5) * 2 * Math.PI) / (segments / 2)) * 50;
+        const controlY = height - 60 + Math.sin(((i - 0.5) * 2 * Math.PI) / (segments / 2)) * 60;
 
         if (i === 0) {
             path += `C${controlX},${controlY} ${controlX},${controlY} ${x},${y} `;
@@ -20,8 +20,8 @@ function generateWavePath() {
         }
     }
 
-    // Close the path
-    path += `L${width},${height} L0,${height} Z`;
+    // Close the path to fill below the wave
+    path += `L${width + 60},${height} L-60,${height} Z`; // Extend beyond for seamlessness
     return path;
 }
 
@@ -33,9 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ensure fill is applied
     wavePath.style.fill = '#007bff';
+    wavePath.style.stroke = 'none';
 
     // Add seamless animation
-    wavePath.style.animation = 'waveFlow 10s infinite linear';
+    wavePath.style.animation = 'waveFlow 12s infinite linear';
 });
 
 // Define the keyframes for seamless looping
