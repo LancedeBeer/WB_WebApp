@@ -9,7 +9,7 @@ function generateWavePath() {
     // Generate a repeating sine-based wave
     for (let i = 0; i <= segments + 1; i++) {
         const x = i * segmentWidth;
-        const y = height - 70 + Math.sin((i * 2 * Math.PI) / (segments / 2)) * 70; // Full height usage
+        const y = (height - 70 + Math.sin((i * 2 * Math.PI) / (segments / 2)) * 70); // Full height usage
         const controlX = x - segmentWidth / 2;
         const controlY = height - 70 + Math.sin(((i - 0.5) * 2 * Math.PI) / (segments / 2)) * 70;
 
@@ -30,7 +30,7 @@ function preventContainerOverlap() {
     const container = document.querySelector('.container');
     const waveContainer = document.querySelector('.WaveContainer');
     const viewportHeight = window.innerHeight;
-    const minGap = 20; // Minimum gap between container and wave
+    const minGap = 1; // Minimum gap between container and wave
 
     // Get dimensions and positions
     const containerRect = container.getBoundingClientRect();

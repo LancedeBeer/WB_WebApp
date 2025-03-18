@@ -9,7 +9,7 @@
 }
 
 .WaveContainer svg {
-    width: 200%; /* Double width to ensure continuous coverage */
+    width: 220%; /* Double width to ensure continuous coverage */
     height: 100%;
     display: block;
 }
