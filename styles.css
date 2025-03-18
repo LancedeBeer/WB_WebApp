@@ -78,7 +78,7 @@ h1 {
 }
 
 .signup {
-    margin: 30px 0 200px 0; /* Wave height (200px), no extra 10px needed */
+    margin: 30px 0 200px 0; /* Matches wave height, bottom at wave's top */
 }
 
 .signup h3 {
@@ -250,7 +250,7 @@ footer {
     }
 
     .signup {
-        margin: 30px 0 150px 0; /* Wave height (150px) */
+        margin: 30px 0 150px 0; /* Matches wave height, bottom at wave's top */
     }
 }
 

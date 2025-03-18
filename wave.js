@@ -1,6 +1,6 @@
 // Procedurally generate a smooth, seamless wave path
 function generateWavePath() {
-    const width = 1440; // Single screen width for simpler looping
+    const width = 2880; // Double width for seamless looping (2x 1440)
     const height = 200; // Wave height
     const segmentWidth = 180; // Smaller segments for smoother curve
     const segments = width / segmentWidth;
@@ -20,8 +20,7 @@ function generateWavePath() {
         }
     }
 
-    // Ensure seamless looping by matching end to start
-    path += `S${width - segmentWidth / 2},${height / 2} ${width},${height / 2} `;
+    // Close the path without disrupting the wave shape
     path += `L${width},${height} L0,${height} Z`;
     return path;
 }
@@ -32,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const pathData = generateWavePath();
     wavePath.setAttribute('d', pathData);
 
+    // Ensure fill is applied
+    wavePath.style.fill = '#007bff'; // Reinforce fill color
+
     // Add seamless animation via CSS
     wavePath.style.animation = 'waveFlow 10s infinite linear';
 });
@@ -41,7 +43,7 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = `
     @keyframes waveFlow {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-1440px); } /* Matches path width */
+        100% { transform: translateX(-1440px); } /* Half the path width for seamless loop */
     }
 `;
 document.head.appendChild(styleSheet);
