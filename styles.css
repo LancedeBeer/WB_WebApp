@@ -114,24 +114,22 @@ select:focus {
 .form-group {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    align-items: center;
+    gap: 15px; /* Adjusted for radio buttons */
     margin-bottom: 8px;
 }
 
-input[type="email"] {
-    padding: 8px;
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 250px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
 }
 
-input[type="email"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
+input[type="radio"] {
+    margin: 0;
+    cursor: pointer;
 }
 
 .btn {
@@ -221,11 +219,6 @@ footer {
     to { opacity: 1; }
 }
 
-@keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
 @media (max-width: 600px) {
     .container {
         padding: 20px;
@@ -252,9 +245,14 @@ footer {
         font-size: 16px;
     }
 
-    select, input[type="email"], .btn {
+    select, .btn {
         width: 100%;
         max-width: 200px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
