@@ -16,7 +16,7 @@ function handleClientSubmit(event) {
 
     // Placeholder URLs - replace with your actual Google Form links
     const existingClientForm = 'https://forms.gle/example-existing-client-form';
-    const newClientDoc = 'https://forms.gle/example-new-client-form'; // Changed to Form link
+    const newClientDoc = 'https://forms.gle/example-new-client-form';
 
     setTimeout(() => {
         if (clientStatus.value === 'yes') {
