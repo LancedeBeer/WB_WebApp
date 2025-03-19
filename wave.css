@@ -1,15 +1,15 @@
 .WaveContainer {
-    position: fixed;
-    bottom: 0; /* Adjusted by JS */
+    position: absolute;
+    bottom: 0; /* Originally adjusted by JS */
     left: 0;
     width: 100%;
-    height: 160px;
+    height: 200px;
     z-index: 0;
     overflow: hidden;
 }
 
 .WaveContainer svg {
-    width: 200%; /* Double width to ensure continuous coverage */
+    width: 100%;
     height: 100%;
     display: block;
 }

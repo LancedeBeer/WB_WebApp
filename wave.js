@@ -1,3 +1,4 @@
+/*
 // Procedurally generate a smooth, seamless, infinite wave path
 function generateWavePath() {
     const width = 2880; // Double width for seamless looping
@@ -7,11 +8,11 @@ function generateWavePath() {
     let path = `M-60,${height} `; // Start off-screen
 
     // Generate a repeating sine-based wave
-    for (let i = 0; i <= segments + 1; i++) {
+    for (let i = 0; i <= segments; i++) {
         const x = i * segmentWidth;
-        const y = height - 70 + Math.sin((i * 2 * Math.PI) / (segments / 2)) * 70; // Full height usage
+        const y = 100 + Math.sin((i * 2 * Math.PI) / segments) * 90; // Oscillate around y=100
         const controlX = x - segmentWidth / 2;
-        const controlY = height - 70 + Math.sin(((i - 0.5) * 2 * Math.PI) / (segments / 2)) * 70;
+        const controlY = 100 + Math.sin(((i - 0.5) * 2 * Math.PI) / segments) * 90;
 
         if (i === 0) {
             path += `C${controlX},${controlY} ${controlX},${controlY} ${x},${y} `;
@@ -21,7 +22,7 @@ function generateWavePath() {
     }
 
     // Close the path fully
-    path += `L${width + 60},${height} L-60,${height} Z`;
+    path += `L${width},${height} L-60,${height} Z`;
     return path;
 }
 
@@ -72,7 +73,8 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = `
     @keyframes waveFlow {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-1440px); } /* Half the path width */
+        100% { transform: translateX(-1440px); } // Half the path width
     }
 `;
 document.head.appendChild(styleSheet);
+*/

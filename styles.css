@@ -19,18 +19,18 @@ body {
 }
 
 .container {
+    display: none; /* Hides the container */
     text-align: center;
-    background-color: transparent; /* Make it invisible */
-    padding: 20px; /* Reduce padding */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
     border-radius: 15px;
-    box-shadow: none; /* Remove shadow */
-    max-width: 500px; /* Make it smaller */
-    margin: 20px auto 0 auto; /* Keep auto margins for centering */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px 20px 0 20px; /* Bottom margin originally set by JS */
     animation: fadeIn 1s ease-in-out;
     position: relative;
     z-index: 1;
 }
-
 
 .logo {
     max-width: 150px;
@@ -212,7 +212,7 @@ footer {
 @media (max-width: 600px) {
     .container {
         padding: 20px;
-        margin: 20px 20px 0 20px; /* Bottom margin set by JS */
+        margin: 20px 20px 0 20px; /* Bottom margin originally set by JS */
     }
 
     .logo {
