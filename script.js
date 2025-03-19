@@ -14,9 +14,9 @@ function handleClientSubmit(event) {
     formMessage.style.color = '#28a745';
     formMessage.style.display = 'block';
 
-    // Placeholder URLs - replace with your actual Google Form and Doc links
+    // Placeholder URLs - replace with your actual Google Form links
     const existingClientForm = 'https://forms.gle/example-existing-client-form';
-    const newClientDoc = 'https://docs.google.com/document/d/example-registration-order-form';
+    const newClientDoc = 'https://forms.gle/example-new-client-form'; // Changed to Form link
 
     setTimeout(() => {
         if (clientStatus.value === 'yes') {
@@ -24,6 +24,6 @@ function handleClientSubmit(event) {
         } else {
             window.open(newClientDoc, '_blank');
         }
-        formMessage.style.display = 'none'; // Hide message after redirect
-    }, 1000); // 1-second delay for user feedback
+        formMessage.style.display = 'none';
+    }, 1000);
 }
