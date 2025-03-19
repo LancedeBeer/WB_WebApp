@@ -18,11 +18,25 @@
         </header>
         <main>
             <section class="hero">
-                <div class="hero-image">
-                    <img src="water-dispenser.jpg" alt="Water Dispenser" class="hero-img">
-                </div>
                 <h2>Exciting Offers Coming Soon!</h2>
                 <p>Our web app for monthly specials and coupons on water dispensers and containers is under development. Be the first to know when it launches!</p>
+            </section>
+            <section class="current-specials">
+                <h3>Current Month's Specials</h3>
+                <select id="current-specials-dropdown" aria-label="Current Month's Specials">
+                    <option value="" disabled selected>Select a special</option>
+                    <option value="special1">March 2025: 20% off 5L Bottles</option>
+                    <option value="special2">March 2025: Free Dispenser Rental</option>
+                </select>
+            </section>
+            <section class="previous-specials">
+                <h3>Previous Months' Specials</h3>
+                <select id="previous-specials-dropdown" aria-label="Previous Months' Specials">
+                    <option value="" disabled selected>Select a special</option>
+                    <option value="feb2025">Feb 2025: 15% off Bulk Orders</option>
+                    <option value="jan2025">Jan 2025: Buy 2 Get 1 Free</option>
+                    <option value="dec2024">Dec 2024: 10% off All Rentals</option>
+                </select>
             </section>
             <section class="signup">
                 <h3>Stay Updated</h3>
@@ -52,8 +66,8 @@
         </footer>
     </div>
 
-    <!-- Commented out WaveContainer and wave.js-->
-     <!--
+    <!-- Commented out WaveContainer and wave.js script -->
+    <!--
     <div class="WaveContainer">
         <svg viewBox="0 0 2880 200" preserveAspectRatio="none">
             <path id="wave-path" class="wave-path" style="stroke: none; fill: #007bff;"></path>

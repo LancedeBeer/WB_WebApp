@@ -19,7 +19,6 @@ body {
 }
 
 .container {
-    display: none; /* Hides the container */
     text-align: center;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 30px;
@@ -53,18 +52,6 @@ h1 {
     position: relative;
 }
 
-.hero-image {
-    margin-bottom: 20px;
-}
-
-.hero-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    animation: slideIn 1s ease-in-out;
-}
-
 .hero h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
@@ -75,6 +62,36 @@ h1 {
 .hero p {
     font-size: 16px;
     color: #666;
+}
+
+.current-specials, .previous-specials {
+    margin: 30px 0;
+}
+
+.current-specials h3, .previous-specials h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #005566;
+    margin-bottom: 10px;
+}
+
+select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 250px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 
 .signup {
@@ -231,27 +248,18 @@ footer {
         font-size: 12px;
     }
 
-    .signup h3, .contact h3 {
+    .current-specials h3, .previous-specials h3, .signup h3, .contact h3 {
         font-size: 16px;
     }
 
-    .form-group {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    input[type="email"], .btn {
+    select, input[type="email"], .btn {
         width: 100%;
         max-width: 200px;
-    }
-
-    .hero-img {
-        max-width: 80%;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .container, .hero-img, .btn, .contact-link, .social-links a {
+    .container, .btn, .contact-link, .social-links a {
         animation: none;
         transition: none;
     }
