@@ -36,13 +36,14 @@ body {
 }
 
 .logo {
-    max-width: 150px;
+    max-width: 246px;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.14);
+    transform: scale(1.08);
+    max-width: 268px;
 }
 
 h1 {
