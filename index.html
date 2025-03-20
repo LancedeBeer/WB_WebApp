@@ -102,6 +102,7 @@
                         formMessage.textContent = 'Welcome back, existing customer!';
                         formMessage.style.color = '#28a745';
                     } else {
+                        window.open('https://docs.google.com/forms/d/e/1FAIpQLSd1q-aAeSbdo8dYVz2TmSkEriaobTH3XX0iWkchwUo8u2fSfQ/viewform?usp=header', '_blank')
                         formMessage.textContent = 'Welcome, new customer!';
                         formMessage.style.color = '#28a745';
                     }
@@ -113,7 +114,7 @@
                     confirmButtonText: 'Understood',
                     icon: 'success'
                 }).then(() => {
-                    formMessage.textContent = 'We’re excited to have you on board!';
+                    formMessage.textContent = 'We are excited to have you on board!';
                     formMessage.style.color = '#28a745';
                     formMessage.style.display = 'block';
                 });
