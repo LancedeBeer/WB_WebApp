@@ -98,6 +98,7 @@
                 }).then((result) => {
                     formMessage.style.display = 'block';
                     if (result.isConfirmed) {
+                        window.open('https://docs.google.com/forms/d/e/1FAIpQLScSOBn22FQYogZYlcj77if4YDsFU2CNYvwpadEq_5ZsxcovDQ/viewform?usp=dialog', '_blank')
                         formMessage.textContent = 'Welcome back, existing customer!';
                         formMessage.style.color = '#28a745';
                     } else {
