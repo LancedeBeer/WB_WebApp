@@ -7,7 +7,10 @@
 
 body {
     font-family: 'Open Sans', Arial, sans-serif;
-    background: linear-gradient(to bottom, #5db4ff, #ffffff); /* Darker blue: #0056b3 */
+    /* Background image with gradient to white */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), 
+                url('Lorries.jpg') no-repeat center top;
+    background-size: cover; /* Ensure image covers the entire area */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,36 +24,35 @@ body {
 .container {
     text-align: center;
     background-color: transparent;
-    padding: 24px;
+    padding: 30px;
     border-radius: 0;
     box-shadow: none;
     max-width: 600px;
-    margin: calc(2vh + 20px) calc(2vw + 20px); /* Dynamic margins: 2% viewport height/width + 20px base */
+    margin: calc(2vh + 20px) calc(2vw + 20px);
     animation: fadeIn 1s ease-in-out;
     position: relative;
     z-index: 1;
-    min-height: calc(100vh - 4vh - 40px); /* Ensure content fits within viewport with margins */
+    min-height: calc(100vh - 4vh - 40px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .logo {
-    max-width: 246px;
+    max-width: 150px;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.08);
-    max-width: 268px;
+    transform: scale(1.05);
 }
 
 h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     color: #005566;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .hero {
@@ -59,8 +61,8 @@ h1 {
 
 .hero h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    color: #0015ff;
+    font-size: 24px;
+    color: #007bff;
     margin-bottom: 10px;
 }
 
@@ -227,7 +229,7 @@ footer {
 @media (max-width: 600px) {
     .container {
         padding: 20px;
-        margin: calc(2vh + 10px) calc(2vw + 10px); /* Smaller base margin for mobile */
+        margin: calc(2vh + 10px) calc(2vw + 10px);
         min-height: calc(100vh - 4vh - 20px);
     }
 
