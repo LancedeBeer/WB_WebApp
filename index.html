@@ -6,8 +6,10 @@
     <meta name="description" content="Water Boy's monthly specials and coupons web app is coming soon. Sign up for registre and exclusive offers!">
     <title>Water Boy Monthly Specials - Coming Soon</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="wave.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="container">
@@ -20,14 +22,6 @@
                 <h2>Exciting Specials Coming Soon!</h2>
                 <p>Welcome to our Web App for monthly coupons and specials, where we deliver offers for just being a WaterBoy customer.</p>
             </section>
-            <section class="current-specials">
-                <h3>Current Month's Specials</h3>
-                <select id="current-specials-dropdown" aria-label="Current Month's Specials">
-                    <option value="" disabled selected>Select a special</option>
-                    <option value="special1">March 2025: 20% off 5L Bottles</option>
-                    <option value="special2">March 2025: Free Dispenser Rental</option>
-                </select>
-            </section>
             <section class="previous-specials">
                 <h3>Previous Months' Specials</h3>
                 <select id="previous-specials-dropdown" aria-label="Previous Months' Specials">
@@ -37,12 +31,21 @@
                     <option value="dec2024">Dec 2024: 10% off All Rentals</option>
                 </select>
             </section>
+            <section class="current-specials">
+                <h3>Current Month's Specials</h3>
+                <select id="current-specials-dropdown" aria-label="Current Month's Specials">
+                    <option value="" disabled selected>Select a special</option>
+                    <option value="special1">March 2025: 20% off 5L Bottles</option>
+                    <option value="special2">March 2025: Free Dispenser Rental</option>
+                </select>
+            </section>
+            
             <section class="signup">
                 <h3>Stay Updated</h3>
                 <p>Sign up to receive updates on our web app launch and exclusive offers and deals. At WaterBoy we deliver!</p>
-                <form id="client-form" onsubmit="handleClientSubmit(event)">
+                <form id="client-form">
                     <div class="form-group">
-                        <label><input type="radio" name="client-status" value="yes" required> Yes</label>
+                        <label><input type="radio" name="client-status" value="yes"> Yes</label>
                         <label><input type="radio" name="client-status" value="no"> No</label>
                         <button type="submit" class="btn">Submit</button>
                     </div>
@@ -66,6 +69,55 @@
         </footer>
     </div>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('client-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const formMessage = document.getElementById('form-message');
+            const clientStatus = document.querySelector('input[name="client-status"]:checked');
+
+            formMessage.textContent = '';
+            formMessage.style.display = 'none';
+
+            if (!clientStatus) {
+                formMessage.textContent = 'Please select Yes or No.';
+                formMessage.style.color = '#dc3545';
+                formMessage.style.display = 'block';
+                return;
+            }
+
+            if (clientStatus.value === 'yes') {
+                Swal.fire({
+                    title: 'Customer Status',
+                    text: 'Are you an existing WaterBoy customer or a new one?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Existing',
+                    cancelButtonText: 'New',
+                    icon: 'question'
+                }).then((result) => {
+                    formMessage.style.display = 'block';
+                    if (result.isConfirmed) {
+                        formMessage.textContent = 'Welcome back, existing customer!';
+                        formMessage.style.color = '#28a745';
+                    } else {
+                        formMessage.textContent = 'Welcome, new customer!';
+                        formMessage.style.color = '#28a745';
+                    }
+                });
+            } else if (clientStatus.value === 'no') {
+                Swal.fire({
+                    title: 'Thank You',
+                    text: 'Thank you for choosing WaterBoy. We appreciate your interest and look forward to serving you!',
+                    confirmButtonText: 'Understood',
+                    icon: 'success'
+                }).then(() => {
+                    formMessage.textContent = 'We’re excited to have you on board!';
+                    formMessage.style.color = '#28a745';
+                    formMessage.style.display = 'block';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
